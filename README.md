@@ -42,7 +42,7 @@ The original form of SDS Loss as proposed in DreamFusion is:
 
 $$
 \begin{equation}
-    \nabla_{\theta} \mathcal{L}_ {\mathrm{SDS}}(g(\theta))=\mathbb{E}_{t,\epsilon, \mathbf{c}}\left[w(t) \frac{\sigma_{t}}{\alpha_{t}} \nabla_{\theta} \operatorname{KL}\left(q\left(\mathbf{x}_ {t} |\mathbf{x}=g(\theta; \mathbf{c})\right) || \ p_{\phi}\left(\mathbf{x}_{t}|y\right)\right)\right]
+    \nabla_{\theta} \mathcal{L}_ {\mathrm{SDS}}(g(\theta))=\mathbb{E}_{t,\epsilon, \mathbf{c}}\left[ w(t) \frac{\sigma_{t}}{\alpha_{t}} \nabla_{\theta} \operatorname{KL}\left(q\left(\mathbf{x}_ {t} |\mathbf{x}=g(\theta; \mathbf{c})\right) || \ p_{\phi}\left(\mathbf{x}_{t}|y\right)\right)\right]
 \end{equation}
 $$
 
