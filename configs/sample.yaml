@@ -1,0 +1,31 @@
+TrainEmbeddingParams:
+  saved_embeds_path: "logs/28017/id_embeddings/learned_embeds.bin"
+  save_steps: 100
+  only_save_embeds: True
+  placeholder_token: "<12345>"
+  train_batch_size: 8
+  scale_lr: True
+  n_persudo_tokens: 2
+  learning_rate: 0.000625
+  max_train_steps: 320
+  train_data_dir: "id_images/28017"
+  celeb_path: "cross_initialization/examples/wiki_names_v2.txt"
+  pretrained_model_name_or_path: "/hpc2hdd/home/zcai701/weights/base_model/stable-diffusion-2-1-base"
+  output_dir: "./logs/28017/id_embeddings"
+  consistent_embeds_lr: 0.00001
+
+GuidanceParams:
+  fp16: False
+  base_model_path: "/hpc2hdd/home/zcai701/weights/base_model/stable-diffusion-2-1-base"
+  id_embeds_path: 
+  controlnet_path: 
+  seed: 2023
+  vram_O: False
+  min_range: 0.02
+  max_range: [0.5, 0.98]
+  anneal_timesteps: True
+  anneal_strategy: 'hifa'
+  total_iteration: 1000
+  guidance_scale: 7.5
+  consistent_embeds_lr: 0.0008
+  initial_consistent_prompt: "unrealistic, blurry, low quality, out of focus, ugly, low contrast, dull, dark, low-resolution, gloomy"
