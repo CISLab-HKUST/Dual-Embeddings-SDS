@@ -42,7 +42,7 @@ The original form of SDS Loss as proposed in DreamFusion is:
 
 $$
 \begin{equation}
-    \nabla_{\theta} \mathcal{L}_{\mathrm{SDS}}(g(\theta))=\mathbb{E}_{t,\epsilon, \mathbf{c}}\left[w(t) \frac{\sigma_{t}}{\alpha_{t}} \nabla_{\theta} \operatorname{KL}\left(q\left(\mathbf{x}_{t}|\mathbf{x}=g(\theta; \mathbf{c})\right) || \ p_{\phi}\left(\mathbf{x}_{t}|y\right)\right)\right]
+    \nabla_{\theta} \mathcal{L}_ {\mathrm{SDS}}(g(\theta))=\mathbb{E}_{t,\epsilon, \mathbf{c}}\left[w(t) \frac{\sigma_{t}}{\alpha_{t}} \nabla_{\theta} \operatorname{KL}\left(q\left(\mathbf{x}_{t}|\mathbf{x}=g(\theta; \mathbf{c})\right) || \ p_{\phi}\left(\mathbf{x}_{t}|y\right)\right)\right]
 \end{equation}
 $$
 
@@ -50,7 +50,7 @@ In formal terms, the SDS Loss is actually a comparison of the 3D rendered image 
 
 $$
 \begin{equation}
-    \nabla_{\theta} \mathcal{L}_{\mathrm{SDS}}=\mathbb{E}_{t,\epsilon, \mathbf{c}}\left[w(t)((\epsilon_{\phi}(x_{t};y,t)-\epsilon)\frac{\partial{x}}{\partial{\theta}}\right]
+    \nabla_{\theta} \mathcal{L}_ {\mathrm{SDS}}=\mathbb{E}_{t,\epsilon, \mathbf{c}}\left[w(t)((\epsilon_{\phi}(x_{t};y,t)-\epsilon)\frac{\partial{x}}{\partial{\theta}}\right]
 \end{equation}
 $$
 
@@ -71,7 +71,7 @@ $$
 \end{equation}
 $$
 
-where $\empty$ represents empty text, and $w$ is the guidance scale used to control the degree to which the generated images match the text. Generally, as $w$ increases, the diversity of the generated images decreases, making them more consistent with the text description. SDS Loss also follows this rule.
+where $ \empty $ represents empty text, and $w$ is the guidance scale used to control the degree to which the generated images match the text. Generally, as $w$ increases, the diversity of the generated images decreases, making them more consistent with the text description. SDS Loss also follows this rule.
 
 
 Combining the score function interpretation of SDS with CFG, the SDS Loss can be divided into two parts, represented as $\delta_{x}:=\delta_{x}^{gen} + w \cdot \delta_{x}^{cls}$. From equation (2), it can be observed that $\delta_{x}^{gen}$ is related to $\nabla_{x_{t}}\log q(x_{t}|y)$, while $\delta_{x}^{cls}$, after derivation, is known to be related to $\nabla_{x_{t}}\log q(y|x_{t})$, which guides the data distribution of the noisy image towards a distribution that matches the text description. Therefore, this term has favorable properties, and most subsequent work only focuses on optimizing the $\delta_{x}^{gen}$ term.
