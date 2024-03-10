@@ -66,7 +66,9 @@ $$
 Currently, an implicit classifier (CFG) is often used to control the Diffusion Model to generate images that match the text description. In CFG, the predicted noise is given by:
 
 $$
+\begin{equation}
 \delta_{x}(x_{t};y,t)=\underbrace{[\epsilon_{\phi}(x_{t};\empty,t) - \epsilon]}_{\delta_{x}^{gen}} + w \cdot \underbrace{[\epsilon_{\phi}(x_{t};y,t)-\epsilon_{\phi}(x_{t};\empty,t)]}_{\delta_{x}^{cls}}
+\end{equation}
 $$
 
 where $\empty$ represents empty text, and $w$ is the guidance scale used to control the degree to which the generated images match the text. Generally, as $w$ increases, the diversity of the generated images decreases, making them more consistent with the text description. SDS Loss also follows this rule.
@@ -75,7 +77,7 @@ where $\empty$ represents empty text, and $w$ is the guidance scale used to cont
 Combining the score function interpretation of SDS with CFG, the SDS Loss can be divided into two parts, represented as $\delta_{x}:=\delta_{x}^{gen} + w \cdot \delta_{x}^{cls}$. From equation (2), it can be observed that $\delta_{x}^{gen}$ is related to $\nabla_{x_{t}}\log q(x_{t}|y)$, while $\delta_{x}^{cls}$, after derivation, is known to be related to $\nabla_{x_{t}}\log q(y|x_{t})$, which guides the data distribution of the noisy image towards a distribution that matches the text description. Therefore, this term has favorable properties, and most subsequent work only focuses on optimizing the $\delta_{x}^{gen}$ term.
 
 #### DE-SDS
-The main problem of $\delta_{x}^{gen}$ is mode seeking. Since $\delta_{x}^{gen}$ represent a sophisticated distribution of the natural images, iteratively maximizing the likelihood between the rendered images of it may lead to mode seeking problem - finally optimized to the mean value of the real distribution (More details please see [ProlificDreamer](https://arxiv.org/abs/2305.16213)). 
+The main problem of $\delta_{x}^{gen}$ is mode seeking. Since $\delta_{x}^{gen}$ represent a sophisticated distribution of the natural images, iteratively maximizing the likelihood between the rendered images may lead to mode seeking problem - finally optimized to the mean value of the real distribution (More details please see [ProlificDreamer](https://arxiv.org/abs/2305.16213)). 
 
 In DE-SDS, the $\delta_{x}^{gen}$ will be turned to:
 
