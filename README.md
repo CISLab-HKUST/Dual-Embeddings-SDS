@@ -42,7 +42,7 @@ The original form of SDS Loss as proposed in DreamFusion is:
 
 $$
 \begin{equation}
-    \nabla_{\theta} \mathcal{L}_ {\mathrm{SDS}}(g(\theta))=\mathbb{E}_{t,\epsilon, \mathbf{c}}\left[w(t) \frac{\sigma_{t}}{\alpha_{t}} \nabla_{\theta} \operatorname{KL}\left(q\left(\mathbf{x}_{t}|\mathbf{x}=g(\theta; \mathbf{c})\right) || \ p_{\phi}\left(\mathbf{x}_{t}|y\right)\right)\right]
+    \nabla_{\theta} \mathcal{L}_ {\mathrm{SDS}}(g(\theta))=\mathbb{E}_{t,\epsilon, \mathbf{c}}\left[w(t) \frac{\sigma_{t}}{\alpha_{t}} \nabla_{\theta} \operatorname{KL}\left(q\left(\mathbf{x}_ {t} |\mathbf{x}=g(\theta; \mathbf{c})\right) || \ p_{\phi}\left(\mathbf{x}_{t}|y\right)\right)\right]
 \end{equation}
 $$
 
@@ -67,7 +67,7 @@ Currently, an implicit classifier (CFG) is often used to control the Diffusion M
 
 $$
 \begin{equation}
-\delta_{x}(x_{t};y,t)=\underbrace{[\epsilon_{\phi}(x_{t};\empty,t) - \epsilon]}_{\delta_{x}^{gen}} + w \cdot \underbrace{[\epsilon_{\phi}(x_{t};y,t)-\epsilon_{\phi}(x_{t};\empty,t)]}_{\delta_{x}^{cls}}
+\delta_{x}(x_{t};y,t)=\underbrace{[\epsilon_{\phi}(x_{t};\empty,t) - \epsilon]}_ {\delta_ {x}^{gen}} + w \cdot \underbrace{[\epsilon_{\phi}(x_{t};y,t)-\epsilon_{\phi}(x_{t};\empty,t)]}_ {\delta_{x}^{cls}}
 \end{equation}
 $$
 
